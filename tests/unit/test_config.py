@@ -17,6 +17,10 @@ def test_config_provider(config):
     assert config.provider == "AWS"
 
 
+def test_config_aws_account(config):
+    assert config.account == "123456"
+
+
 def test_config_file(config):
     assert config.config_file == OEDI_TEST_CONFIG_FILE
 
@@ -49,6 +53,7 @@ def test_config_staging_location(config):
 
 def test_config_data(config):
     expected = {
+        "Account": "123456",
         "Region Name": "us-west-2",
         "Datalake Name": "aws-oedi-datalake",
         "Staging Location": "s3://aws-staging-bucket/",
@@ -78,6 +83,7 @@ def test_config_data(config):
 def test_config_load(config):
     expected = {
         "AWS": {
+            "Account": "123456",
             "Region Name": "us-west-2",
             "Datalake Name": "aws-oedi-datalake",
             "Staging Location": "s3://aws-staging-bucket/",

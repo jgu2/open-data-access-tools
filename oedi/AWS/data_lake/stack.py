@@ -10,7 +10,9 @@ class AWSDataLakeStack(core.Stack):
 
     def __init__(self, scope: core.Construct, config: OEDIConfigBase) -> None:
         """Lauch AWS data lake related infrastructures."""
-        super().__init__(scope, config.datalake_name, env={"region": config.region_name})
+        super().__init__(scope, config.datalake_name, env={
+            "region": config.region_name
+        })
 
         for database in config.databases:
             db_name = database["Name"].replace("-", "_")

@@ -81,6 +81,13 @@ class AWSDataLakeConfig(OEDIConfigBase):
         return "AWS"
 
     @property
+    def account(self):
+        account_value = self.data.get("Account", None)
+        if not None:
+            account_value = str(account_value)
+        return account_value
+
+    @property
     def region_name(self):
         return self.data.get("Region Name", None)
 
